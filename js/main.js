@@ -144,18 +144,28 @@
   if (!metrics.length) return;
 
   function countUp(el) {
-    const target   = parseInt(el.dataset.target, 10);
+    const targetStr = el.dataset.target || '0';
+    const target = parseFloat(targetStr);
     const duration = 1600; // ms
-    const start    = performance.now();
+    const start = performance.now();
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = el.dataset.decimals
+      ? parseInt(el.dataset.decimals, 10)
+      : (targetStr.includes('.') ? targetStr.split('.')[1].length : 0);
+
+    function formatValue(value) {
+      const fixed = value.toFixed(decimals);
+      return `${prefix}${fixed}${suffix}`;
+    }
 
     function step(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // ease-out cubic
       const ease = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.floor(ease * target);
+      el.textContent = formatValue(ease * target);
       if (progress < 1) requestAnimationFrame(step);
-      else el.textContent = target;
+      else el.textContent = formatValue(target);
     }
 
     requestAnimationFrame(step);
