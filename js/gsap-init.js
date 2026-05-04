@@ -72,4 +72,49 @@
       });
     }
   });
+
+  if (typeof ScrollTrigger !== 'undefined') {
+    const heroSection = document.getElementById('hero');
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroSection && heroBg) {
+      gsap.to(heroBg, {
+        y: () => -(heroSection.offsetHeight * 0.3),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroSection,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+
+    const aboutSection = document.getElementById('about');
+    const aboutImage = document.querySelector('#about .about-image');
+    if (aboutSection && aboutImage) {
+      gsap.to(aboutImage, {
+        y: () => -(aboutSection.offsetHeight * 0.5),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: aboutSection,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    }
+
+    gsap.utils.toArray('#work .work-card').forEach((card, index) => {
+      gsap.to(card, {
+        y: -20 - (index * 4),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+    });
+  }
 }());
