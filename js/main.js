@@ -15,8 +15,6 @@
 
 'use strict';
 
-document.documentElement.classList.add('js-enabled');
-
 /* ─── 1. Custom Cursor ─────────────────────────────────────── */
 (function initCursor() {
   const dot  = document.getElementById('cursorDot');
@@ -87,11 +85,14 @@ document.documentElement.classList.add('js-enabled');
 
 /* ─── 2b. Button Ripple Effect ─────────────────────────────── */
 (function initRipples() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
   const targets = document.querySelectorAll('button, .btn, .btn-nav, .btn-course, .work-button, .testimonial-btn');
   if (!targets.length) return;
 
   targets.forEach((el) => {
     el.addEventListener('click', (event) => {
+      el.querySelectorAll('.btn-ripple').forEach((ripple) => ripple.remove());
       const rect = el.getBoundingClientRect();
       const ripple = document.createElement('span');
       const size = Math.max(rect.width, rect.height);
@@ -297,12 +298,14 @@ document.documentElement.classList.add('js-enabled');
   const total = slides.length;
   let index = 0;
   let intervalId;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const update = () => {
     track.style.transform = `translateX(-${index * 100}%)`;
   };
 
   const startAuto = () => {
+    if (prefersReducedMotion) return;
     intervalId = window.setInterval(() => {
       index = (index + 1) % total;
       update();

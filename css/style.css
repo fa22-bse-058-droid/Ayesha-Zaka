@@ -1465,12 +1465,14 @@ button {
 /* ─── 17. Reveal Animations (JS-triggered) ──────────────────── */
 .js-enabled .scroll-section:not(#hero):not(#ticker):not(#footer) {
   opacity: 0;
+  visibility: hidden;
   transform: translateY(24px);
   transition: opacity 0.65s ease, transform 0.65s ease;
 }
 
 .js-enabled .scroll-section.is-visible {
   opacity: 1;
+  visibility: visible;
   transform: translateY(0);
 }
 
@@ -1491,6 +1493,13 @@ button {
 .reveal-right.is-visible {
   opacity: 1;
   transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-ripple {
+    animation: none;
+    opacity: 0;
+  }
 }
 
 /* ─── 18. Responsive Breakpoints ───────────────────────────── */
