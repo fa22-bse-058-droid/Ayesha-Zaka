@@ -228,10 +228,12 @@
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-visible');
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0 });
 
   revealEls.forEach((el) => observer.observe(el));
   sectionEls.forEach((el) => observer.observe(el));

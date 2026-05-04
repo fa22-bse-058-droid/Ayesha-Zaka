@@ -7,6 +7,12 @@
 
 'use strict';
 
+// Safety: make all sections visible by default
+document.querySelectorAll('section').forEach((el) => {
+  el.style.opacity = '1';
+  el.style.visibility = 'visible';
+});
+
 (function initGSAP() {
   if (typeof gsap === 'undefined') {
     console.warn('gsap-init.js: GSAP not found. Animations skipped.');
@@ -57,7 +63,7 @@
       gsap.from(labels, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         y: 20,
-        opacity: 0,
+        opacity: 1,
         duration: 0.6,
         ease: 'power2.out',
       });
@@ -68,7 +74,7 @@
       gsap.from(headlines, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         y: 30,
-        opacity: 0,
+        opacity: 1,
         duration: 0.7,
         ease: 'power2.out',
       });
@@ -79,7 +85,7 @@
       gsap.from(cards, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         y: 40,
-        opacity: 0,
+        opacity: 1,
         stagger: 0.15,
         ease: 'power2.out',
       });
@@ -90,7 +96,7 @@
       gsap.from(bentoCards, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         y: 40,
-        opacity: 0,
+        opacity: 1,
         stagger: 0.12,
         ease: 'power2.out',
       });
@@ -101,7 +107,7 @@
       gsap.from(serviceLeft, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         x: -30,
-        opacity: 0,
+        opacity: 1,
         stagger: 0.12,
         ease: 'power2.out',
       });
@@ -112,7 +118,7 @@
       gsap.from(serviceRight, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         x: 30,
-        opacity: 0,
+        opacity: 1,
         stagger: 0.12,
         ease: 'power2.out',
       });
@@ -123,7 +129,7 @@
       gsap.from(images, {
         scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
         scale: 0.95,
-        opacity: 0,
+        opacity: 1,
         stagger: 0.1,
         duration: 0.7,
         ease: 'power2.out',
