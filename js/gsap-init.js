@@ -26,7 +26,7 @@
   const headlineSelector = '.section-title, .hero-title, .about-title, .course-title, .lead-title';
   const cardSelector = '.work-card, .service-card, .testimonial-card, .pillar, .course-card, .lead-checklist';
 
-  gsap.utils.toArray('section').forEach((section) => {
+  gsap.utils.toArray('.scroll-section').forEach((section) => {
     const labels = section.querySelectorAll(labelSelector);
     if (labels.length) {
       gsap.from(labels, {
