@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════════
+   animations.css — Keyframes & transition utilities
+   Ayesha Zaka — Social Media Marketing Strategist Website
+═══════════════════════════════════════════════════════════════ */
+
+/* ─── Ticker scroll ──────────────────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Scroll progress line in hero ───────────────────────────── */
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0.3; }
+}
+
+/* ─── Fade in up (used by GSAP as class fallback) ─────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Fade in (generic) ──────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Pulse glow (accent elements) ───────────────────────────── */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 16px rgba(26, 107, 255, 0.3); }
+  50%       { box-shadow: 0 0 36px rgba(26, 107, 255, 0.6); }
+}
+
+/* ─── Float (hero image subtle bob) ──────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* ─── Gradient shift (optional backgrounds) ──────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── Spin (loading indicator if needed) ─────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Shimmer (skeleton loading if needed) ───────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ─── Utility: apply float animation to hero image ───────────── */
+.hero-img-wrap img {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ─── Utility: pulse CTA button ──────────────────────────────── */
+.btn-primary {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Pause pulse on hover — user is interacting */
+.btn-primary:hover {
+  animation: none;
+}
+
+/* ─── Transition utilities ────────────────────────────────────── */
+.transition-fast   { transition-duration: 0.15s !important; }
+.transition-normal { transition-duration: 0.3s  !important; }
+.transition-slow   { transition-duration: 0.6s  !important; }
+
+.ease-in-out { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; }
+.ease-bounce  { transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1) !important; }
