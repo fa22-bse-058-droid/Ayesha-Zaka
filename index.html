@@ -52,6 +52,16 @@
        2. HERO
   ═══════════════════════════════════════════ -->
   <section id="hero" class="scroll-section">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-particles" aria-hidden="true">
+      <span class="particle" style="--x:12%;--y:18%;--size:6px;--delay:-2s;--duration:14s;"></span>
+      <span class="particle" style="--x:78%;--y:22%;--size:5px;--delay:-6s;--duration:18s;"></span>
+      <span class="particle" style="--x:64%;--y:64%;--size:7px;--delay:-4s;--duration:16s;"></span>
+      <span class="particle" style="--x:28%;--y:72%;--size:4px;--delay:-8s;--duration:20s;"></span>
+      <span class="particle" style="--x:46%;--y:34%;--size:5px;--delay:-3s;--duration:15s;"></span>
+      <span class="particle" style="--x:86%;--y:78%;--size:6px;--delay:-5s;--duration:19s;"></span>
+    </div>
     <div class="hero-inner container">
       <div class="hero-content">
         <p class="hero-eyebrow">Social Media Marketing Strategist</p>
@@ -140,21 +150,38 @@
         </p>
         <div class="about-pillars">
           <div class="pillar">
-            <span class="pillar-icon">📊</span>
+            <span class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 20h16" />
+                <rect x="5" y="10" width="3" height="7" rx="1" />
+                <rect x="10.5" y="6" width="3" height="11" rx="1" />
+                <rect x="16" y="12" width="3" height="5" rx="1" />
+              </svg>
+            </span>
             <div>
               <h3 class="pillar-title">Strategic</h3>
               <p class="pillar-desc">Every decision is based on data and purpose.</p>
             </div>
           </div>
           <div class="pillar">
-            <span class="pillar-icon">🎨</span>
+            <span class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 20l6-2 8-8a2.5 2.5 0 0 0-3.5-3.5l-8 8-2 6z" />
+                <path d="M13.5 6.5l4 4" />
+              </svg>
+            </span>
             <div>
               <h3 class="pillar-title">Creative</h3>
               <p class="pillar-desc">Content that connects and converts.</p>
             </div>
           </div>
           <div class="pillar">
-            <span class="pillar-icon">🚀</span>
+            <span class="pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 16l6-6 4 4 7-7" />
+                <path d="M14 7h7v7" />
+              </svg>
+            </span>
             <div>
               <h3 class="pillar-title">Results Focused</h3>
               <p class="pillar-desc">Real growth, measurable and sustainable.</p>

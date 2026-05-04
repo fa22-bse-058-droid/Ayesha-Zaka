@@ -131,6 +131,23 @@ button {
   padding: 0 24px;
 }
 
+.scroll-section {
+  position: relative;
+}
+
+.scroll-section:not(#hero)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--bg) 0%, transparent 100%);
+  pointer-events: none;
+  opacity: 0.65;
+  z-index: 3;
+}
+
 .accent {
   color: var(--accent);
 }
@@ -142,6 +159,8 @@ button {
   text-transform: uppercase;
   color: var(--accent-blue);
   margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent-blue);
 }
 
 .section-title {
@@ -252,10 +271,34 @@ button {
   font-weight: 500;
   color: var(--text-secondary);
   transition: color var(--transition);
+  position: relative;
+  padding-bottom: 6px;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
+}
+
+.nav-link:not(.btn-nav)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--accent-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:not(.btn-nav):hover::after,
+.nav-link:not(.btn-nav).active::after {
+  transform: scaleX(1);
+}
+
+.btn-nav::after {
+  display: none;
 }
 
 .btn-nav {
@@ -308,17 +351,49 @@ button {
   padding-top: var(--nav-height);
   position: relative;
   overflow: hidden;
+  background: var(--bg);
 }
 
-#hero::before {
-  content: '';
+.hero-bg,
+.hero-grid,
+.hero-particles {
   position: absolute;
-  top: -200px;
-  right: -200px;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(26,107,255,0.12) 0%, transparent 70%);
+  inset: 0;
   pointer-events: none;
+}
+
+.hero-bg {
+  background-image:
+    radial-gradient(circle at 15% 18%, rgba(26,107,255,0.12) 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(26,107,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(26,107,255,0.1) 0%, transparent 55%),
+    radial-gradient(circle at 25% 85%, rgba(26,107,255,0.06) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.hero-grid {
+  background-image: radial-gradient(rgba(26, 107, 255, 0.2) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.08;
+  z-index: 1;
+}
+
+.hero-particles {
+  z-index: 1;
+}
+
+.hero-particles .particle {
+  position: absolute;
+  width: var(--size, 6px);
+  height: var(--size, 6px);
+  border-radius: 50%;
+  background: rgba(77, 142, 255, 0.9);
+  box-shadow: 0 0 12px rgba(26, 107, 255, 0.6);
+  top: var(--y, 50%);
+  left: var(--x, 50%);
+  opacity: 0.7;
+  animation: particleFloat var(--duration, 18s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
 
 .hero-inner {
@@ -327,6 +402,8 @@ button {
   gap: 60px;
   align-items: center;
   padding: 80px 24px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-eyebrow {
@@ -336,6 +413,8 @@ button {
   text-transform: uppercase;
   color: var(--accent-blue);
   margin-bottom: 16px;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent-blue);
 }
 
 .hero-title {
@@ -344,6 +423,10 @@ button {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
+}
+
+.hero-title .accent {
+  text-shadow: 0 0 60px rgba(26, 107, 255, 0.2);
 }
 
 .hero-sub {
@@ -427,6 +510,7 @@ button {
   align-items: center;
   gap: 8px;
   opacity: 0.5;
+  z-index: 2;
 }
 
 .scroll-line {
@@ -547,8 +631,21 @@ button {
 }
 
 .pillar-icon {
-  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(26, 107, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  flex-shrink: 0;
   margin-top: 2px;
+}
+
+.pillar-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .pillar-title {
@@ -583,12 +680,40 @@ button {
   min-width: 240px;
   transition: all 0.3s ease;
   animation-delay: var(--delay, 0s);
+  position: relative;
+  overflow: hidden;
+  --depth-shadow: 0;
+  --hover-shadow: 0;
+  box-shadow: 0 8px 40px rgba(26, 107, 255, calc(var(--depth-shadow) + var(--hover-shadow)));
 }
 
 .work-card:hover {
   border-color: rgba(26, 107, 255, 0.4);
-  box-shadow: 0 8px 40px rgba(26, 107, 255, 0.1);
+  --hover-shadow: 0.1;
   transform: translateY(-4px);
+}
+
+.work-card::after,
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(26, 107, 255, 0.2), rgba(77, 142, 255, 0.6), rgba(26, 107, 255, 0.2));
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.work-card:hover::after,
+.testimonial-card:hover::after {
+  opacity: 1;
+  animation: gradientBorder 6s ease infinite;
 }
 
 .work-phone {
@@ -670,12 +795,30 @@ button {
   gap: 1rem;
   transition: all 0.3s ease;
   animation-delay: var(--delay, 0s);
+  position: relative;
+  overflow: hidden;
 }
 
 .service-card:hover {
   border-color: rgba(26, 107, 255, 0.4);
   box-shadow: 0 8px 40px rgba(26, 107, 255, 0.1);
   transform: translateY(-4px);
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  inset: -30% -30%;
+  background: linear-gradient(135deg, rgba(26, 107, 255, 1) 0%, rgba(26, 107, 255, 0) 65%);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.4s ease;
+  transform: translate(-10%, 10%);
+  pointer-events: none;
+}
+
+.service-card:hover::after {
+  opacity: 0.06;
+  transform: translate(0, 0);
 }
 
 .service-icon {
@@ -751,6 +894,8 @@ button {
   letter-spacing: 3px;
   color: var(--accent-blue);
   margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent-blue);
 }
 
 .course-title {
@@ -804,6 +949,8 @@ button {
   gap: 1.5rem;
   flex: 1 1 calc(33.333% - 1rem);
   min-width: 240px;
+  position: relative;
+  overflow: hidden;
 }
 
 .quote-mark {
@@ -882,6 +1029,8 @@ button {
   letter-spacing: 0.2em;
   color: var(--accent-blue);
   margin-bottom: 8px;
+  padding-left: 12px;
+  border-left: 1px solid var(--accent-blue);
 }
 
 .lead-title {
@@ -1049,6 +1198,25 @@ button {
 }
 
 /* ─── 18. Responsive Breakpoints ───────────────────────────── */
+
+/* Desktop breathing room */
+@media (min-width: 1025px) {
+  #about,
+  #work,
+  #services,
+  #testimonials {
+    padding: 140px 8%;
+  }
+
+  #course,
+  #lead-magnet {
+    padding: 100px 8%;
+  }
+
+  #footer {
+    padding: 100px 8% 50px;
+  }
+}
 
 /* Tablet */
 @media (max-width: 1024px) {
