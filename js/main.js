@@ -23,6 +23,9 @@
   if (!dot || !ring) return;
   if (window.matchMedia('(hover: none)').matches) return; // touch device
 
+  // Signal CSS that the custom cursor is active — hides the default cursor
+  document.body.classList.add('custom-cursor-active');
+
   let ringX = 0, ringY = 0;
   let mouseX = 0, mouseY = 0;
 
