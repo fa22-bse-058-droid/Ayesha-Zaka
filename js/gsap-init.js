@@ -2,219 +2,62 @@
  * gsap-init.js
  * Ayesha Zaka — Social Media Marketing Strategist Website
  *
- * All GSAP + ScrollTrigger animations.
- * Requires gsap.min.js and ScrollTrigger.min.js loaded before this file.
- *
- * Animations:
- *   - Hero section entrance (staggered)
- *   - Section titles + content reveals (ScrollTrigger)
- *   - Work card parallax
- *   - Service card stagger
- *   - Testimonial cards stagger
- *   - Course section entrance
- *   - Lead magnet entrance
- *   - Navbar logo entrance
+ * Scroll-triggered animations for labels, headlines, cards, and images.
  */
 
 'use strict';
 
 (function initGSAP() {
-  // Guard: GSAP must be present
   if (typeof gsap === 'undefined') {
     console.warn('gsap-init.js: GSAP not found. Animations skipped.');
     return;
   }
 
-  // Register ScrollTrigger plugin
   if (typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  /* ─── Helper: create ScrollTrigger default config ─────────── */
-  function st(trigger, extraOpts) {
-    return Object.assign({
-      trigger,
-      start:   'top 82%',
-      end:     'bottom 20%',
-      toggleActions: 'play none none none',
-    }, extraOpts || {});
-  }
+  const baseTrigger = {
+    start: 'top 85%',
+    toggleActions: 'play none none none',
+  };
 
-  /* ═══════════════════════════════════════════════════════════
-     1. HERO — staggered entrance on page load
-  ═══════════════════════════════════════════════════════════ */
-  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-
-  heroTl
-    .from('.hero-eyebrow', { duration: 0.6, opacity: 0, y: 20 })
-    .from('.hero-title',   { duration: 0.8, opacity: 0, y: 32 },    '-=0.3')
-    .from('.hero-sub',     { duration: 0.7, opacity: 0, y: 24 },    '-=0.4')
-    .from('.hero-ctas',    { duration: 0.6, opacity: 0, y: 20 },    '-=0.3')
-    .from('.hero-stats .stat', {
-      duration: 0.5,
-      opacity: 0,
-      y: 16,
-      stagger: 0.12,
-    }, '-=0.2')
-    .from('.hero-img-wrap', { duration: 1, opacity: 0, x: 40, ease: 'power2.out' }, '-=0.8')
-    .from('.hero-scroll-hint', { duration: 0.6, opacity: 0, y: 10 }, '-=0.2');
-
-  /* ═══════════════════════════════════════════════════════════
-     2. NAVBAR logo entrance
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('.nav-logo', { duration: 0.7, opacity: 0, x: -20, ease: 'power2.out', delay: 0.2 });
-  gsap.from('.nav-links > *', {
-    duration: 0.5,
-    opacity: 0,
-    y: -12,
-    stagger: 0.08,
-    ease: 'power2.out',
-    delay: 0.4,
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     3. ABOUT SECTION
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#about .about-image', {
-    scrollTrigger: st('#about', { start: 'top 80%' }),
-    duration: 0.8,
-    opacity: 0,
-    x: -60,
-    ease: 'power3.out',
-  });
-
-  gsap.from('#about .about-content', {
-    scrollTrigger: st('#about', { start: 'top 80%' }),
-    duration: 0.8,
-    opacity: 0,
-    x: 60,
-    ease: 'power3.out',
-  });
-
-  gsap.from('.about-pillars .pillar', {
-    scrollTrigger: st('.about-pillars', { start: 'top 80%' }),
-    duration: 0.6,
-    opacity: 0,
-    y: 30,
-    stagger: 0.15,
-    ease: 'power2.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     4. WORK / CASE STUDIES
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#work .section-header', {
-    scrollTrigger: st('#work'),
-    duration: 0.8,
-    opacity: 0,
-    y: 30,
-  });
-
-  gsap.from('.work-card', {
-    scrollTrigger: st('.work-grid'),
-    duration: 0.7,
-    opacity: 0,
-    y: 48,
-    stagger: 0.15,
-    ease: 'power3.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     5. SERVICES
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#services .section-header', {
-    scrollTrigger: st('#services'),
-    duration: 0.8,
-    opacity: 0,
-    y: 30,
-  });
-
-  gsap.from('.service-card', {
-    scrollTrigger: st('.services-grid', { start: 'top 80%' }),
-    duration: 0.6,
-    opacity: 0,
-    y: 40,
-    stagger: 0.1,
-    ease: 'power2.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     6. COURSE
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#course .course-details > *', {
-    scrollTrigger: st('#course', { start: 'top 80%' }),
-    duration: 0.65,
-    opacity: 0,
-    x: 30,
-    stagger: 0.12,
-    ease: 'power3.out',
-  });
-
-  gsap.from('#course .course-visual', {
-    scrollTrigger: st('#course .course-visual', { start: 'top 80%' }),
-    duration: 0.9,
-    opacity: 0,
-    x: -30,
-    ease: 'power2.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     7. TESTIMONIALS
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#testimonials .section-header', {
-    scrollTrigger: st('#testimonials'),
-    duration: 0.8,
-    opacity: 0,
-    y: 30,
-  });
-
-  gsap.from('.testimonial-card', {
-    scrollTrigger: st('.testimonials-grid'),
-    duration: 0.65,
-    opacity: 0,
-    y: 40,
-    stagger: 0.15,
-    ease: 'power2.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     8. LEAD MAGNET
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('#lead-magnet .lead-inner > *', {
-    scrollTrigger: st('#lead-magnet'),
-    duration: 0.65,
-    opacity: 0,
-    y: 28,
-    stagger: 0.12,
-    ease: 'power3.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     9. FOOTER
-  ═══════════════════════════════════════════════════════════ */
-  gsap.from('.footer-inner > *', {
-    scrollTrigger: st('#footer'),
-    duration: 0.6,
-    opacity: 0,
-    y: 24,
-    stagger: 0.1,
-    ease: 'power2.out',
-  });
-
-  /* ═══════════════════════════════════════════════════════════
-     10. PARALLAX — hero background glow on scroll
-  ═══════════════════════════════════════════════════════════ */
-  if (typeof ScrollTrigger !== 'undefined') {
-    gsap.to('#hero::before', {
-      scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end:   'bottom top',
-        scrub: true,
-      },
-      y: -80,
-      ease: 'none',
+  function animateElements(elements, vars) {
+    elements.forEach((el) => {
+      gsap.from(el, Object.assign({
+        scrollTrigger: Object.assign({ trigger: el }, baseTrigger),
+        duration: 0.6,
+        ease: 'power2.out',
+      }, vars));
     });
   }
 
+  animateElements(
+    gsap.utils.toArray('.section-label, .hero-eyebrow, .course-label, .lead-label'),
+    { y: 20, opacity: 0 }
+  );
+
+  animateElements(
+    gsap.utils.toArray('.section-title, .hero-title, .about-title, .course-title, .lead-title'),
+    { y: 30, opacity: 0 }
+  );
+
+  const cardSelector = '.work-card, .service-card, .testimonial-card, .pillar, .course-card, .lead-checklist';
+  gsap.utils.toArray('section').forEach((section) => {
+    const cards = section.querySelectorAll(cardSelector);
+    if (!cards.length) return;
+
+    gsap.from(cards, {
+      scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      ease: 'power2.out',
+    });
+  });
+
+  animateElements(
+    gsap.utils.toArray('section img'),
+    { scale: 0.95, opacity: 0, duration: 0.7 }
+  );
 }());
