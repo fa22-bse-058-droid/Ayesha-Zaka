@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ayesha Zaka — Social Media Marketing Strategist. Meta Ads, Google Ads, AI-powered campaigns. Based in Sahiwal, Punjab, Pakistan." />
+  <title>Ayesha Zaka | Social Media Marketing Strategist</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══════════════════════════════════════════
+       1. NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo">Ayesha<span class="accent">.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#course" class="nav-link">Course</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#lead-magnet" class="nav-link btn-nav magnetic">Get Free Guide</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       2. HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Social Media Marketing Strategist</p>
+        <h1 class="hero-title">
+          Turning <span class="accent">Scroll</span><br />
+          Into <span class="accent">Sales</span>
+        </h1>
+        <p class="hero-sub">
+          I build data-driven Meta &amp; Google Ad campaigns that convert — helping brands in Pakistan and beyond scale with precision.
+        </p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-primary magnetic">See My Work</a>
+          <a href="#lead-magnet" class="btn btn-ghost magnetic">Free Meta Ads Guide</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="metric" data-target="50">0</span><span class="accent">+</span>
+            <p>Brands Scaled</p>
+          </div>
+          <div class="stat">
+            <span class="metric" data-target="167">0</span><span class="accent">%</span>
+            <p>Avg. ROAS Increase</p>
+          </div>
+          <div class="stat">
+            <span class="metric" data-target="3">0</span><span class="accent">M+</span>
+            <p>Ad Spend Managed</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-img-wrap">
+          <img src="images/hero.png" alt="Ayesha Zaka — Social Media Marketing Strategist" />
+          <div class="hero-glow"></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span class="scroll-line"></span>
+      <span class="scroll-label">scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. TICKER — Infinite skills strip
+  ═══════════════════════════════════════════ -->
+  <section id="ticker" aria-label="Skills">
+    <div class="ticker-track">
+      <div class="ticker-list" id="tickerList">
+        <span>Meta Ads</span><span class="sep">✦</span>
+        <span>Google Ads</span><span class="sep">✦</span>
+        <span>Social Media Management</span><span class="sep">✦</span>
+        <span>Content Strategy</span><span class="sep">✦</span>
+        <span>AI Content Creation</span><span class="sep">✦</span>
+        <span>Personal Branding</span><span class="sep">✦</span>
+        <span>Funnel Optimization</span><span class="sep">✦</span>
+        <span>Ad Account Audit</span><span class="sep">✦</span>
+        <span>Email Marketing</span><span class="sep">✦</span>
+        <span>Analytics &amp; Reporting</span><span class="sep">✦</span>
+        <!-- Duplicate for seamless loop -->
+        <span>Meta Ads</span><span class="sep">✦</span>
+        <span>Google Ads</span><span class="sep">✦</span>
+        <span>Social Media Management</span><span class="sep">✦</span>
+        <span>Content Strategy</span><span class="sep">✦</span>
+        <span>AI Content Creation</span><span class="sep">✦</span>
+        <span>Personal Branding</span><span class="sep">✦</span>
+        <span>Funnel Optimization</span><span class="sep">✦</span>
+        <span>Ad Account Audit</span><span class="sep">✦</span>
+        <span>Email Marketing</span><span class="sep">✦</span>
+        <span>Analytics &amp; Reporting</span><span class="sep">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-image reveal-left">
+          <img src="images/workspace.jpg" alt="Ayesha Zaka's workspace" loading="lazy" />
+          <div class="about-badge">
+            <span class="badge-num">3+</span>
+            <span class="badge-text">Years of<br/>Experience</span>
+          </div>
+        </div>
+        <div class="about-content reveal-right">
+          <p class="section-label">About Me</p>
+          <h2 class="section-title">Strategy. Creativity.<br /><span class="accent">Results.</span></h2>
+          <p class="about-bio">
+            I'm Ayesha Zaka, a Social Media Marketing Strategist from Sahiwal, Punjab, Pakistan. I specialise in building and scaling paid social campaigns on Meta and Google that generate measurable ROI — not just impressions.
+          </p>
+          <p class="about-bio">
+            With a background in AI-assisted content creation and deep audience research, I help businesses cut through the noise and connect with the people who actually buy.
+          </p>
+          <div class="about-pillars">
+            <div class="pillar">
+              <span class="pillar-icon">📊</span>
+              <h3>Strategic</h3>
+              <p>Every campaign starts with data. I audit, plan, and execute with precision.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">🎨</span>
+              <h3>Creative</h3>
+              <p>Scroll-stopping ad creatives and content that speaks to your ideal audience.</p>
+            </div>
+            <div class="pillar">
+              <span class="pillar-icon">🚀</span>
+              <h3>Results</h3>
+              <p>ROAS, CPL, CAC — I track what matters and optimise relentlessly.</p>
+            </div>
+          </div>
+          <a href="mailto:aishazaka007@gmail.com" class="btn btn-primary magnetic">Work With Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. RECENT WORK
+  ═══════════════════════════════════════════ -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Case Studies</p>
+        <h2 class="section-title">Recent <span class="accent">Work</span></h2>
+        <p class="section-sub">Real campaigns. Real numbers.</p>
+      </div>
+
+      <div class="work-grid">
+        <!-- Case Study 1 -->
+        <article class="work-card reveal-up">
+          <div class="work-img">
+            <img src="images/phone1.png" alt="E-commerce brand case study" loading="lazy" />
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Meta Ads</span>
+            <h3>E-Commerce Brand</h3>
+            <p>Scaled a fashion e-commerce store from $2k/mo ad spend to $18k/mo in 90 days while maintaining a 4.2× ROAS.</p>
+            <div class="work-metrics">
+              <div class="work-metric">
+                <span class="metric accent" data-target="167">0</span><span class="accent">%</span>
+                <p>ROAS increase</p>
+              </div>
+              <div class="work-metric">
+                <span class="metric accent" data-target="42">0</span><span class="accent">%</span>
+                <p>CPA reduction</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case Study 2 -->
+        <article class="work-card reveal-up" style="--delay: 0.15s">
+          <div class="work-img">
+            <img src="images/phone2.png" alt="Coaching brand case study" loading="lazy" />
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Lead Gen</span>
+            <h3>Coaching Brand</h3>
+            <p>Built a full-funnel lead gen system for a business coaching brand — from cold traffic to booked discovery calls.</p>
+            <div class="work-metrics">
+              <div class="work-metric">
+                <span class="metric accent" data-target="320">0</span><span class="accent">+</span>
+                <p>Leads / month</p>
+              </div>
+              <div class="work-metric">
+                <span class="metric accent" data-target="58">0</span><span class="accent">%</span>
+                <p>Lower CPL</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case Study 3 -->
+        <article class="work-card reveal-up" style="--delay: 0.3s">
+          <div class="work-img">
+            <img src="images/phone3.png" alt="Personal brand case study" loading="lazy" />
+          </div>
+          <div class="work-body">
+            <span class="work-tag">Personal Branding</span>
+            <h3>Personal Brand</h3>
+            <p>Grew a personal brand's Instagram from 1.2k to 28k followers organically in 6 months through content strategy.</p>
+            <div class="work-metrics">
+              <div class="work-metric">
+                <span class="metric accent" data-target="28">0</span><span class="accent">K</span>
+                <p>Followers gained</p>
+              </div>
+              <div class="work-metric">
+                <span class="metric accent" data-target="18">0</span><span class="accent">×</span>
+                <p>Engagement lift</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. SERVICES
+  ═══════════════════════════════════════════ -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What I Offer</p>
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">Everything you need to dominate your market online.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card reveal-up">
+          <span class="service-icon">📣</span>
+          <h3>Meta Ads Management</h3>
+          <p>Full-funnel Facebook &amp; Instagram ad campaigns — creative strategy, audience research, A/B testing, and continuous optimisation.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.1s">
+          <span class="service-icon">📱</span>
+          <h3>Social Media Management</h3>
+          <p>End-to-end management of your Instagram, Facebook, and LinkedIn — content calendar, posting, community management.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.2s">
+          <span class="service-icon">✍️</span>
+          <h3>Content Strategy</h3>
+          <p>Data-backed content plans that align with your brand voice and drive real engagement, not just likes.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.3s">
+          <span class="service-icon">🤖</span>
+          <h3>AI Content Creation</h3>
+          <p>Leverage AI tools to produce high-volume, on-brand content at a fraction of the traditional cost.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.4s">
+          <span class="service-icon">🎯</span>
+          <h3>Personal Branding</h3>
+          <p>Build an authoritative personal brand that attracts clients, partnerships, and speaking opportunities.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.5s">
+          <span class="service-icon">🔍</span>
+          <h3>Google Ads</h3>
+          <p>Search, Display, and YouTube campaigns managed for maximum click-through and minimum wasted spend.</p>
+          <a href="mailto:aishazaka007@gmail.com" class="service-link magnetic">Get Started →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7. COURSE
+  ═══════════════════════════════════════════ -->
+  <section id="course">
+    <div class="container">
+      <div class="course-inner reveal-up">
+        <div class="course-content">
+          <span class="course-badge">New Course</span>
+          <h2 class="section-title">Social Media Marketing<br /><span class="accent">Mastery</span></h2>
+          <p class="course-desc">
+            A complete, beginner-to-advanced course covering Meta Ads, Google Ads, content strategy, and AI tools — taught in Urdu with real campaign walkthroughs.
+          </p>
+          <ul class="course-features">
+            <li>✓ 40+ video lessons</li>
+            <li>✓ Real campaign case studies</li>
+            <li>✓ Private community access</li>
+            <li>✓ Lifetime updates</li>
+            <li>✓ Certificate of completion</li>
+          </ul>
+          <div class="course-ctas">
+            <a href="mailto:aishazaka007@gmail.com" class="btn btn-primary magnetic">Enroll Now</a>
+            <a href="#testimonials" class="btn btn-ghost magnetic">See Reviews</a>
+          </div>
+        </div>
+        <div class="course-image">
+          <img src="images/laptop.png" alt="Social Media Marketing Mastery course — laptop mockup" loading="lazy" />
+          <div class="course-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       8. TESTIMONIALS
+  ═══════════════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Client Reviews</p>
+        <h2 class="section-title">What They're <span class="accent">Saying</span></h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <article class="testimonial-card reveal-up">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>
+            "Ayesha completely transformed our Meta Ads. Our ROAS went from 1.8× to 4.7× in just two months. Absolutely phenomenal strategist."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="images/t1.jpg" alt="Sarah Khan" loading="lazy" />
+            <div>
+              <strong>Sarah Khan</strong>
+              <span>Founder, StyleHaven PK</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal-up" style="--delay: 0.15s">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>
+            "The content strategy Ayesha built for us tripled our organic reach. She knows exactly what works on each platform."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="images/t2.jpg" alt="Usman Ali" loading="lazy" />
+            <div>
+              <strong>Usman Ali</strong>
+              <span>CEO, GrowthEdge Coaching</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card reveal-up" style="--delay: 0.3s">
+          <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+          <blockquote>
+            "Professional, results-focused, and incredibly responsive. My personal brand grew from zero to 28k followers with her strategy."
+          </blockquote>
+          <div class="testimonial-author">
+            <img src="images/t3.jpg" alt="Hira Malik" loading="lazy" />
+            <div>
+              <strong>Hira Malik</strong>
+              <span>Life Coach &amp; Speaker</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       9. LEAD MAGNET
+  ═══════════════════════════════════════════ -->
+  <section id="lead-magnet">
+    <div class="container">
+      <div class="lead-inner reveal-up">
+        <div class="lead-badge">Free Resource</div>
+        <h2 class="section-title">
+          Get the Free<br /><span class="accent">Meta Ads Checklist</span>
+        </h2>
+        <p class="lead-desc">
+          The exact 27-point checklist I use before launching every Meta Ads campaign — so you never waste budget on preventable mistakes.
+        </p>
+        <form class="lead-form" id="leadForm" novalidate>
+          <div class="lead-fields">
+            <input type="text" name="name" placeholder="Your name" autocomplete="name" required aria-label="Your name" />
+            <input type="email" name="email" placeholder="Your email address" autocomplete="email" required aria-label="Your email address" />
+            <button type="submit" class="btn btn-primary magnetic">Send Me the Checklist</button>
+          </div>
+          <p class="lead-privacy">No spam. Unsubscribe any time.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       10. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#hero" class="nav-logo">Ayesha<span class="accent">.</span></a>
+          <p>Social Media Marketing Strategist — turning scroll into sales for ambitious brands.</p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/ayeshazakasmmexpert/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.76 1.75-1.76 1.75.79 1.75 1.76-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.975.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.975.975-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.975-.975-1.246-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.975-.975 2.242-1.246 3.608-1.308 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.495.068-2.924.38-4.01 1.465-1.085 1.085-1.397 2.514-1.465 4.01-.058 1.28-.072 1.689-.072 4.948s.014 3.667.072 4.947c.068 1.495.38 2.924 1.465 4.01 1.085 1.085 2.514 1.397 4.01 1.465 1.28.058 1.689.072 4.948.072s3.667-.014 4.947-.072c1.495-.068 2.924-.38 4.01-1.465 1.085-1.085 1.397-2.514 1.465-4.01.058-1.28.072-1.689.072-4.948s-.014-3.667-.072-4.947c-.068-1.495-.38-2.924-1.465-4.01-1.085-1.085-2.514-1.397-4.01-1.465-1.28-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385h-3.047v-3.47h3.047v-2.642c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.514c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385c5.738-.9 10.126-5.864 10.126-11.854z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#course">Course</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+          </ul>
+        </nav>
+
+        <!-- Services -->
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li>Meta Ads Management</li>
+            <li>Google Ads</li>
+            <li>Social Media Management</li>
+            <li>Content Strategy</li>
+            <li>AI Content Creation</li>
+            <li>Personal Branding</li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <p>📧 <a href="mailto:aishazaka007@gmail.com">aishazaka007@gmail.com</a></p>
+          <p>📞 <a href="tel:+923146155627">+92 314 6155627</a></p>
+          <p>📍 Sahiwal, Punjab, Pakistan</p>
+          <a href="mailto:aishazaka007@gmail.com" class="btn btn-primary magnetic footer-cta">Start a Project</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Ayesha Zaka. All rights reserved.</p>
+        <p>Built with precision &amp; passion.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Site scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/gsap-init.js"></script>
+</body>
+</html>
