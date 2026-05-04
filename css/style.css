@@ -1041,7 +1041,6 @@ button {
   gap: 60px;
   align-items: center;
   animation: borderGlow 3s ease-in-out infinite;
-  will-change: border-color;
 }
 
 .course-visual {
