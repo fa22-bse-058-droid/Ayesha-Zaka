@@ -51,8 +51,7 @@ body {
 }
 
 /* cursor:none applied only when the custom cursor JS is running */
-body.custom-cursor-active,
-body.custom-cursor-active * {
+body.custom-cursor-active {
   cursor: none;
 }
 
