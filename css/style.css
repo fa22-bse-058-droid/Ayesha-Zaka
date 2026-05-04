@@ -1464,16 +1464,15 @@ button {
 
 /* ─── 17. Reveal Animations (JS-triggered) ──────────────────── */
 .js-enabled .scroll-section:not(#hero):not(#ticker):not(#footer) {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(24px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-}
-
-.js-enabled .scroll-section.is-visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .reveal-up,
@@ -1481,16 +1480,6 @@ button {
 .reveal-right {
   transition: opacity 0.7s ease, transform 0.7s ease;
   transition-delay: var(--delay, 0s);
-  opacity: 0;
-}
-
-.reveal-up     { transform: translateY(40px); }
-.reveal-left   { transform: translateX(-40px); }
-.reveal-right  { transform: translateX(40px); }
-
-.reveal-up.is-visible,
-.reveal-left.is-visible,
-.reveal-right.is-visible {
   opacity: 1;
   transform: none;
 }
