@@ -15,6 +15,8 @@
 
 'use strict';
 
+document.documentElement.classList.add('js-enabled');
+
 /* ─── 1. Custom Cursor ─────────────────────────────────────── */
 (function initCursor() {
   const dot  = document.getElementById('cursorDot');
@@ -171,8 +173,8 @@
 
 /* ─── 6. Animated Metric Counters ──────────────────────────── */
 (function initCounters() {
-  const metrics = document.querySelectorAll('.metric[data-target], .stat-number[data-target]');
-  if (!metrics.length) return;
+  const counterElements = document.querySelectorAll('.metric[data-target], .stat-number[data-target]');
+  if (!counterElements.length) return;
 
   function countUp(el) {
     const targetStr = el.dataset.target || '0';
@@ -212,7 +214,7 @@
     });
   }, { threshold: 0.3 });
 
-  metrics.forEach((m) => observer.observe(m));
+  counterElements.forEach((m) => observer.observe(m));
 }());
 
 /* ─── 7. Scroll-Reveal (IntersectionObserver fallback) ─────── */
