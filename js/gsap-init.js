@@ -75,34 +75,27 @@
   /* ═══════════════════════════════════════════════════════════
      3. ABOUT SECTION
   ═══════════════════════════════════════════════════════════ */
-  gsap.from('#about .section-label', {
-    scrollTrigger: st('#about'),
-    duration: 0.6,
-    opacity: 0,
-    x: -20,
-  });
-
-  gsap.from('#about .section-title', {
-    scrollTrigger: st('#about .section-title'),
+  gsap.from('#about .about-image', {
+    scrollTrigger: st('#about', { start: 'top 80%' }),
     duration: 0.8,
     opacity: 0,
-    y: 28,
+    x: -60,
     ease: 'power3.out',
   });
 
-  gsap.from('#about .about-bio', {
-    scrollTrigger: st('#about .about-bio'),
-    duration: 0.7,
+  gsap.from('#about .about-content', {
+    scrollTrigger: st('#about', { start: 'top 80%' }),
+    duration: 0.8,
     opacity: 0,
-    y: 20,
-    stagger: 0.15,
+    x: 60,
+    ease: 'power3.out',
   });
 
-  gsap.from('.pillar', {
-    scrollTrigger: st('.about-pillars'),
+  gsap.from('.about-pillars .pillar', {
+    scrollTrigger: st('.about-pillars', { start: 'top 80%' }),
     duration: 0.6,
     opacity: 0,
-    y: 28,
+    y: 30,
     stagger: 0.15,
     ease: 'power2.out',
   });
@@ -137,7 +130,7 @@
   });
 
   gsap.from('.service-card', {
-    scrollTrigger: st('.services-grid'),
+    scrollTrigger: st('.services-grid', { start: 'top 80%' }),
     duration: 0.6,
     opacity: 0,
     y: 40,
@@ -148,20 +141,20 @@
   /* ═══════════════════════════════════════════════════════════
      6. COURSE
   ═══════════════════════════════════════════════════════════ */
-  gsap.from('#course .course-content > *', {
-    scrollTrigger: st('#course'),
+  gsap.from('#course .course-details > *', {
+    scrollTrigger: st('#course', { start: 'top 80%' }),
     duration: 0.65,
     opacity: 0,
-    x: -30,
+    x: 30,
     stagger: 0.12,
     ease: 'power3.out',
   });
 
-  gsap.from('#course .course-image', {
-    scrollTrigger: st('#course .course-image'),
+  gsap.from('#course .course-visual', {
+    scrollTrigger: st('#course .course-visual', { start: 'top 80%' }),
     duration: 0.9,
     opacity: 0,
-    x: 40,
+    x: -30,
     ease: 'power2.out',
   });
 
