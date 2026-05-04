@@ -24,7 +24,32 @@
 
   const labelSelector = '.section-label, .hero-eyebrow, .course-label, .lead-label';
   const headlineSelector = '.section-title, .hero-title, .about-title, .course-title, .lead-title';
-  const cardSelector = '.work-card, .service-card, .testimonial-card, .pillar, .course-card, .lead-checklist';
+  const cardSelector = '.work-row, .services-stats, .course-card, .lead-checklist';
+
+  const heroBlob = document.querySelector('.hero-blob');
+  if (heroBlob) {
+    gsap.to(heroBlob, {
+      scale: 1.08,
+      duration: 4,
+      yoyo: true,
+      repeat: -1,
+      ease: 'sine.inOut',
+    });
+  }
+
+  const heroParticles = document.querySelectorAll('.hero-particles .particle');
+  if (heroParticles.length) {
+    heroParticles.forEach((particle) => {
+      gsap.to(particle, {
+        y: gsap.utils.random(-20, 20),
+        duration: gsap.utils.random(6, 12),
+        yoyo: true,
+        repeat: -1,
+        ease: 'sine.inOut',
+        delay: gsap.utils.random(0, 1.5),
+      });
+    });
+  }
 
   gsap.utils.toArray('#about, #work, #services, #course, #testimonials, #lead-magnet').forEach((section) => {
     const labels = section.querySelectorAll(labelSelector);
@@ -60,6 +85,39 @@
       });
     }
 
+    const bentoCards = section.querySelectorAll('.bento-card');
+    if (bentoCards.length) {
+      gsap.from(bentoCards, {
+        scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
+        y: 40,
+        opacity: 0,
+        stagger: 0.12,
+        ease: 'power2.out',
+      });
+    }
+
+    const serviceLeft = section.querySelectorAll('.service-left');
+    if (serviceLeft.length) {
+      gsap.from(serviceLeft, {
+        scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
+        x: -30,
+        opacity: 0,
+        stagger: 0.12,
+        ease: 'power2.out',
+      });
+    }
+
+    const serviceRight = section.querySelectorAll('.service-right');
+    if (serviceRight.length) {
+      gsap.from(serviceRight, {
+        scrollTrigger: Object.assign({ trigger: section }, baseTrigger),
+        x: 30,
+        opacity: 0,
+        stagger: 0.12,
+        ease: 'power2.out',
+      });
+    }
+
     const images = section.querySelectorAll('img');
     if (images.length) {
       gsap.from(images, {
@@ -89,32 +147,28 @@
       });
     }
 
-    const aboutSection = document.getElementById('about');
-    const aboutImage = document.querySelector('#about .about-image');
-    if (aboutSection && aboutImage) {
-      gsap.to(aboutImage, {
-        y: () => -(aboutSection.offsetHeight * 0.5),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: aboutSection,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-    }
-
-    gsap.utils.toArray('#work .work-card').forEach((card, index) => {
-      gsap.to(card, {
+    gsap.utils.toArray('#work .work-row').forEach((row, index) => {
+      gsap.to(row, {
         y: -20 - (index * 4),
         ease: 'none',
         scrollTrigger: {
-          trigger: card,
+          trigger: row,
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,
         },
       });
+    });
+  }
+
+  const courseCard = document.querySelector('.course-card');
+  if (courseCard) {
+    gsap.to(courseCard, {
+      y: -8,
+      duration: 3,
+      yoyo: true,
+      repeat: -1,
+      ease: 'sine.inOut',
     });
   }
 }());
