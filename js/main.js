@@ -51,7 +51,7 @@
   animateRing();
 
   // Hover states on interactive elements
-  const hoverTargets = document.querySelectorAll('a, button, .magnetic, input, textarea');
+  const hoverTargets = document.querySelectorAll('a, button');
   hoverTargets.forEach((el) => {
     el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
     el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
@@ -60,20 +60,25 @@
 
 /* ─── 2. Magnetic Button Effect ───────────────────────────── */
 (function initMagnetic() {
-  const magnets = document.querySelectorAll('.magnetic');
+  const magnets = document.querySelectorAll('.btn-primary');
 
   magnets.forEach((btn) => {
     btn.addEventListener('mousemove', (e) => {
       const rect   = btn.getBoundingClientRect();
       const cx     = rect.left + rect.width  / 2;
       const cy     = rect.top  + rect.height / 2;
-      const dx     = (e.clientX - cx) * 0.35;
-      const dy     = (e.clientY - cy) * 0.35;
+      const max    = 8;
+      const dxRaw  = ((e.clientX - cx) / (rect.width / 2)) * max;
+      const dyRaw  = ((e.clientY - cy) / (rect.height / 2)) * max;
+      const dx     = Math.max(-max, Math.min(max, dxRaw));
+      const dy     = Math.max(-max, Math.min(max, dyRaw));
+      btn.style.transition = 'transform 0.1s ease';
       btn.style.transform = `translate(${dx}px, ${dy}px)`;
     });
 
     btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
+      btn.style.transition = 'transform 0.3s ease';
+      btn.style.transform = 'translate(0, 0)';
     });
   });
 }());
@@ -146,7 +151,7 @@
   function countUp(el) {
     const targetStr = el.dataset.target || '0';
     const target = parseFloat(targetStr);
-    const duration = 1600; // ms
+    const duration = 2000; // ms
     const start = performance.now();
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
@@ -229,15 +234,8 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const nameEl  = form.querySelector('[name="name"]');
     const emailEl = form.querySelector('[name="email"]');
-    const name    = nameEl ? nameEl.value.trim() : '';
     const email   = emailEl ? emailEl.value.trim() : '';
-
-    if (!name) {
-      nameEl && nameEl.focus();
-      return;
-    }
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailPattern.test(email)) {
@@ -249,7 +247,7 @@
     form.innerHTML = `
       <div class="lead-success" role="status" aria-live="polite">
         <span style="font-size:2rem">🎉</span>
-        <p style="font-size:1.1rem;font-weight:700;margin-top:12px">Checklist on its way, ${name}!</p>
+        <p style="font-size:1.1rem;font-weight:700;margin-top:12px">Checklist on its way!</p>
         <p style="color:var(--text-secondary);margin-top:8px;font-size:0.9rem">
           Check your inbox at <strong>${email}</strong> — it'll arrive within a few minutes.
         </p>
