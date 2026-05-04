@@ -67,9 +67,21 @@
   100% { background-position: 0% 50%; }
 }
 
+/* ─── Border glow pulse (course banner) ─────────────────────── */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(26, 107, 255, 0.2); }
+  50% { border-color: rgba(26, 107, 255, 0.6); }
+}
+
 /* ─── Spin (loading indicator if needed) ─────────────────────── */
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+/* ─── Ripple ───────────────────────────────────────────────── */
+@keyframes ripple {
+  from { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+  to { transform: translate(-50%, -50%) scale(3); opacity: 0; }
 }
 
 /* ─── Shimmer (skeleton loading if needed) ───────────────────── */

@@ -83,6 +83,35 @@
   });
 }());
 
+/* ─── 2b. Button Ripple Effect ─────────────────────────────── */
+(function initRipples() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+  const targets = document.querySelectorAll('button, .btn, .btn-nav, .btn-course, .work-button, .testimonial-btn');
+  if (!targets.length) return;
+
+  targets.forEach((el) => {
+    el.addEventListener('click', (event) => {
+      el.querySelectorAll('.btn-ripple').forEach((ripple) => ripple.remove());
+      const rect = el.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'btn-ripple';
+      ripple.style.width = `${size}px`;
+      ripple.style.height = `${size}px`;
+      ripple.style.left = `${event.clientX - rect.left - size / 2}px`;
+      ripple.style.top = `${event.clientY - rect.top - size / 2}px`;
+      const firstChild = el.firstChild;
+      if (firstChild) {
+        el.insertBefore(ripple, firstChild);
+      } else {
+        el.appendChild(ripple);
+      }
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+}());
+
 /* ─── 3. Scroll Progress Bar ───────────────────────────────── */
 (function initScrollProgress() {
   const bar = document.getElementById('scrollProgress');
@@ -145,8 +174,8 @@
 
 /* ─── 6. Animated Metric Counters ──────────────────────────── */
 (function initCounters() {
-  const metrics = document.querySelectorAll('.metric[data-target]');
-  if (!metrics.length) return;
+  const counterElements = document.querySelectorAll('.metric[data-target], .stat-number[data-target]');
+  if (!counterElements.length) return;
 
   function countUp(el) {
     const targetStr = el.dataset.target || '0';
@@ -186,13 +215,14 @@
     });
   }, { threshold: 0.3 });
 
-  metrics.forEach((m) => observer.observe(m));
+  counterElements.forEach((m) => observer.observe(m));
 }());
 
 /* ─── 7. Scroll-Reveal (IntersectionObserver fallback) ─────── */
 (function initReveal() {
   const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-  if (!revealEls.length) return;
+  const sectionEls = document.querySelectorAll('.scroll-section:not(#hero):not(#ticker):not(#footer)');
+  if (!revealEls.length && !sectionEls.length) return;
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -204,6 +234,7 @@
   }, { threshold: 0.15 });
 
   revealEls.forEach((el) => observer.observe(el));
+  sectionEls.forEach((el) => observer.observe(el));
 }());
 
 /* ─── 8. Active Nav Link (scroll spy) ──────────────────────── */
@@ -254,6 +285,55 @@
       </div>
     `;
   });
+}());
+
+/* ─── 9b. Testimonials Slider ──────────────────────────────── */
+(function initTestimonials() {
+  const track = document.getElementById('testimonialTrack');
+  const slider = document.getElementById('testimonialSlider');
+  const buttons = document.querySelectorAll('.testimonial-btn');
+  if (!track || !slider || !buttons.length) return;
+
+  const slides = track.querySelectorAll('.testimonial-slide');
+  const total = slides.length;
+  let index = 0;
+  let intervalId;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const update = () => {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  };
+
+  const startAuto = () => {
+    if (prefersReducedMotion) return;
+    intervalId = window.setInterval(() => {
+      index = (index + 1) % total;
+      update();
+    }, 5000);
+  };
+
+  const stopAuto = () => {
+    if (intervalId) {
+      window.clearInterval(intervalId);
+      intervalId = null;
+    }
+  };
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const dir = btn.dataset.direction === 'prev' ? -1 : 1;
+      index = (index + dir + total) % total;
+      update();
+      stopAuto();
+      startAuto();
+    });
+  });
+
+  slider.addEventListener('mouseenter', stopAuto);
+  slider.addEventListener('mouseleave', startAuto);
+
+  update();
+  startAuto();
 }());
 
 /* ─── 10. Footer Year ──────────────────────────────────────── */
